@@ -49,6 +49,18 @@
                     <li><strong>Daminhas:</strong> Roupas encantadoras para as pequenas daminhas.</li>
                     <li><strong>Customização:</strong> Alterações e ajustes personalizados para o encaixe perfeito.</li>
                 </ul>
+                <div class="galeria-revista">
+                    <div class="slides-container" onclick="proximoSlide(this)">
+                        <img src="imagens/imagem1.jfif" alt="Noivas" class="slide">
+                        <img src="imagens/imagem2.jfif" alt="Noivas" class="slide">
+                        <img src="imagens/imagem1.jfif" alt="Noivas" class="slide">
+                    </div>
+                    <div class="controles-galeria">
+                        <span class="dot" onclick="mudaSlide(this)" data-section="noiva"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="noiva"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="noiva"></span>
+                    </div>
+                </div>
             </section>
 
             <section id="madrinhas">
@@ -60,7 +72,7 @@
                     <li><strong>Coordenação de Looks:</strong> Orientação para harmonizar os visuais do cortejo.</li>
                 </ul>
                 <div class="galeria-revista">
-                    <div class="slides-container">
+                    <div class="slides-container" onclick="proximoSlide(this)">
                         <img src="imagens/imagem1.jfif" alt="Madrinhas" class="slide">
                         <img src="imagens/imagem2.jfif" alt="Madrinhas" class="slide">
                         <img src="imagens/imagem1.jfif" alt="Madrinhas" class="slide">
@@ -82,7 +94,7 @@
                     <li><strong>Acessórios Infantis:</strong> Tiaras, sapatos e complementos em tamanho infantil.</li>
                 </ul>
                 <div class="galeria-revista">
-                    <div class="slides-container">
+                    <div class="slides-container" onclick="proximoSlide(this)">
                         <img src="imagens/imagem2.jfif" alt="Daminhas" class="slide">
                         <img src="imagens/imagem1.jfif" alt="Daminhas" class="slide">
                         <img src="imagens/imagem2.jfif" alt="Daminhas" class="slide">
@@ -103,6 +115,18 @@
                     <li><strong>Blazers e Ternos:</strong> Looks impecáveis para formandos.</li>
                     <li><strong>Acessórios Complementares:</strong> Joias e gravatas para completar seu visual perfeito.</li>
                 </ul>
+                <div class="galeria-revista">
+                    <div class="slides-container" onclick="proximoSlide(this)">
+                        <img src="imagens/imagem1.jfif" alt="Formatura" class="slide">
+                        <img src="imagens/imagem2.jfif" alt="Formatura" class="slide">
+                        <img src="imagens/imagem1.jfif" alt="Formatura" class="slide">
+                    </div>
+                    <div class="controles-galeria">
+                        <span class="dot" onclick="mudaSlide(this)" data-section="formatura"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="formatura"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="formatura"></span>
+                    </div>
+                </div>
             </section>
 
             <section id="quinze-anos">
@@ -112,6 +136,18 @@
                     <li><strong>Vestidos de Debutante:</strong> Modelos luxuosos em cores variadas para a valsa e recepção.</li>
                     <li><strong>Sapatos e Acessórios:</strong> Complementos ideais para completar o look da debutante.</li>
                 </ul>
+                <div class="galeria-revista">
+                    <div class="slides-container" onclick="proximoSlide(this)">
+                        <img src="imagens/imagem1.jfif" alt="15 Anos" class="slide">
+                        <img src="imagens/imagem2.jfif" alt="15 Anos" class="slide">
+                        <img src="imagens/imagem1.jfif" alt="15 Anos" class="slide">
+                    </div>
+                    <div class="controles-galeria">
+                        <span class="dot" onclick="mudaSlide(this)" data-section="quinze-anos"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="quinze-anos"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="quinze-anos"></span>
+                    </div>
+                </div>
             </section>
 
             <section id="noivo">
@@ -121,6 +157,18 @@
                     <li><strong>Ternos e Smoking:</strong> Peças elegantes para eventos formais com corte alfaiataria.</li>
                     <li><strong>Acessórios Masculinos:</strong> Gravatas, lenços de lapela e botões de punho.</li>
                 </ul>
+                <div class="galeria-revista">
+                    <div class="slides-container" onclick="proximoSlide(this)">
+                        <img src="imagens/imagem1.jfif" alt="Noivos" class="slide">
+                        <img src="imagens/imagem2.jfif" alt="Noivos" class="slide">
+                        <img src="imagens/imagem1.jfif" alt="Noivos" class="slide">
+                    </div>
+                    <div class="controles-galeria">
+                        <span class="dot" onclick="mudaSlide(this)" data-section="noivo"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="noivo"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="noivo"></span>
+                    </div>
+                </div>
             </section>
 
             <section id="acessorios">
@@ -178,6 +226,32 @@
             // Adicionar ativo ao selecionado
             slides[indice].classList.add('ativo');
             elemento.classList.add('ativo');
+        }
+
+        // Função para passar para o próximo slide ao clicar nas imagens (folhas de revista)
+        function proximoSlide(container) {
+            const slides = container.querySelectorAll('.slide');
+            const controlesGaleria = container.parentElement.querySelector('.controles-galeria');
+            const dots = controlesGaleria.querySelectorAll('.dot');
+            
+            // Encontrar qual slide está ativo atualmente
+            let indiceAtual = 0;
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('ativo')) {
+                    indiceAtual = index;
+                }
+            });
+
+            // Calcular próximo índice (voltando ao primeiro se for o último)
+            const proximoIndice = (indiceAtual + 1) % slides.length;
+
+            // Remover ativo de todos
+            slides.forEach(slide => slide.classList.remove('ativo'));
+            dots.forEach(dot => dot.classList.remove('ativo'));
+
+            // Adicionar ativo ao próximo
+            slides[proximoIndice].classList.add('ativo');
+            dots[proximoIndice].classList.add('ativo');
         }
 
         // Inicializar ao carregar

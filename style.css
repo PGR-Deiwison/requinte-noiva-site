@@ -307,6 +307,7 @@ h2 {
     border-radius: 3px;
     background-color: #fff;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    cursor: pointer;
 }
 
 .slide {
