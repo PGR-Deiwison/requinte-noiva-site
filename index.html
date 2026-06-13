@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Requinte Modas</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Requinte Modas | Noivas e Alta Costura</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
-<header>
-    <img class="logo" src="imagens/logo2.png" alt="Logo da Requinte Modas" width="400" height="450">
-    <p>Bem-vindo ao Requinte Modas, onde realizamos sonhos e criamos momentos inesquecíveis para o seu grande dia. Explore nossos serviços e deixe-nos fazer parte da sua jornada rumo ao "sim".</p>
-</header>
 <body>
-    <menu class="nav">
+
+    <header class="main-header">
+        <img class="logo" src="imagens/logo2.png" alt="Logo da Requinte Modas" width="250">
+        <p class="header-intro">Realizando sonhos e criando momentos inesquecíveis para o seu grande dia. Deixe-nos fazer parte da sua jornada rumo ao "sim".</p>
+    </header>
+
+    <nav class="nav">
         <ul>
+            <li><a href="index.html" class="active">Início</a></li>
             <li><a href="sobre_nos.html">Sobre Nós</a></li>
             <li><a href="serviços.html">Serviços</a></li>
-            <li><a href="#contato">Contato</a></li>
         </ul>
-    
-    </menu>
+    </nav>
 
-    <img src="imagens/imagem1.jfif" alt="Imagem de um vestido de noiva elegante" width="400" height="300">
+    <main class="home-main">
+        <div class="hero-image-container">
+            <img src="imagens/imagem1.jfif" alt="Imagem de um vestido de noiva elegante" class="img-destaque">
+            <div class="hero-text-overlay">
+                <h2>Exclusividade em Cada Detalhe</h2>
+                <a href="https://wa.me" target="_blank" class="botao">Agendar Horário no Ateliê</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p id="contato">📍 Av. Principal, 123 - Centro | 📱 WhatsApp: (XX) XXXXX-XXXX</p>
+        <p class="copy">&copy; 2026 Requinte Modas. Todos os direitos reservados.</p>
+    </footer>
+
 </body>
-<footer>
-    <p>&copy; 2026 Requinte Modas. Todos os direitos reservados.</p>
-</footer>
 </html>
