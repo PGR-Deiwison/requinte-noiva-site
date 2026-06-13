@@ -290,7 +290,68 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* RODAPÉ GERAL */
+/* GALERIA TIPO REVISTA */
+.galeria-revista {
+    margin-top: 30px;
+    background-color: #faf7f2;
+    padding: 20px;
+    border-radius: 3px;
+    border: 1px solid #eae1d4;
+}
+
+.slides-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.ativo {
+    opacity: 1;
+}
+
+.controles-galeria {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #d4c5b5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.dot:hover {
+    background-color: #a38244;
+    transform: scale(1.2);
+}
+
+.dot.ativo {
+    background-color: #a38244;
+    border-color: #3a3028;
+    box-shadow: 0 0 8px rgba(163, 130, 68, 0.5);
+}
+
+/* ANIMAÇÕES PÁGINA REVISTA */
 footer {
     background-color: #fff;
     padding: 35px 20px;

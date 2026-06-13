@@ -27,6 +27,8 @@
             <h3>Categorias</h3>
             <ul>
                 <li><a href="#noiva">👰 Noiva</a></li>
+                <li><a href="#madrinhas">💐 Madrinhas e Padrinhos</a></li>
+                <li><a href="#daminhas">👧 Daminhas e Pajem</a></li>
                 <li><a href="#formatura">🎓 Formatura</a></li>
                 <li><a href="#quinze-anos">💎 15 Anos</a></li>
                 <li><a href="#noivo">🤵 Noivo</a></li>
@@ -47,6 +49,50 @@
                     <li><strong>Daminhas:</strong> Roupas encantadoras para as pequenas daminhas.</li>
                     <li><strong>Customização:</strong> Alterações e ajustes personalizados para o encaixe perfeito.</li>
                 </ul>
+            </section>
+
+            <section id="madrinhas">
+                <h3>💐 Serviços para Madrinhas e Padrinhos</h3>
+                <p>As madrinhas e padrinhos têm papel especial na cerimônia. Oferecemos looks sofisticados e coordenados para complementar a beleza do evento:</p>
+                <ul class="servicos-list">
+                    <li><strong>Vestidos de Madrinhas:</strong> Modelos elegantes em cores harmonizadas com a noiva.</li>
+                    <li><strong>Ternos para Padrinhos:</strong> Peças alfaiatadas com estilo e sofisticação.</li>
+                    <li><strong>Coordenação de Looks:</strong> Orientação para harmonizar os visuais do cortejo.</li>
+                </ul>
+                <div class="galeria-revista">
+                    <div class="slides-container">
+                        <img src="imagens/imagem1.jfif" alt="Madrinhas" class="slide">
+                        <img src="imagens/imagem2.jfif" alt="Madrinhas" class="slide">
+                        <img src="imagens/imagem1.jfif" alt="Madrinhas" class="slide">
+                    </div>
+                    <div class="controles-galeria">
+                        <span class="dot" onclick="mudaSlide(this)" data-section="madrinhas"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="madrinhas"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="madrinhas"></span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="daminhas">
+                <h3>👧 Serviços para Daminhas e Pajem</h3>
+                <p>Os pequenos da cerimônia também merecem atenção especial! Contamos com roupas encantadoras, confortáveis e elegantes:</p>
+                <ul class="servicos-list">
+                    <li><strong>Vestidos de Daminhas:</strong> Modelos fofos e delicados para as pequenas princesas.</li>
+                    <li><strong>Roupas para Pajem:</strong> Trajes elegantes e confortáveis para os meninos.</li>
+                    <li><strong>Acessórios Infantis:</strong> Tiaras, sapatos e complementos em tamanho infantil.</li>
+                </ul>
+                <div class="galeria-revista">
+                    <div class="slides-container">
+                        <img src="imagens/imagem2.jfif" alt="Daminhas" class="slide">
+                        <img src="imagens/imagem1.jfif" alt="Daminhas" class="slide">
+                        <img src="imagens/imagem2.jfif" alt="Daminhas" class="slide">
+                    </div>
+                    <div class="controles-galeria">
+                        <span class="dot" onclick="mudaSlide(this)" data-section="daminhas"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="daminhas"></span>
+                        <span class="dot" onclick="mudaSlide(this)" data-section="daminhas"></span>
+                    </div>
+                </div>
             </section>
 
             <section id="formatura">
@@ -97,6 +143,46 @@
     <footer>
         <p>&copy; 2026 Requinte Modas. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        // Inicializar primeira imagem como ativa em cada seção
+        function inicializarGalerias() {
+            document.querySelectorAll('.slides-container').forEach(container => {
+                const primeiroSlide = container.querySelector('.slide');
+                if (primeiroSlide) {
+                    primeiroSlide.classList.add('ativo');
+                }
+            });
+
+            document.querySelectorAll('.controles-galeria').forEach(controles => {
+                const primeiroBot = controles.querySelector('.dot');
+                if (primeiroBot) {
+                    primeiroBot.classList.add('ativo');
+                }
+            });
+        }
+
+        // Função para mudar slide ao clicar nos dots
+        function mudaSlide(elemento) {
+            const section = elemento.getAttribute('data-section');
+            const indice = Array.from(elemento.parentElement.children).indexOf(elemento);
+            
+            const container = document.querySelector(`#${section} .slides-container`);
+            const slides = container.querySelectorAll('.slide');
+            const dots = document.querySelectorAll(`[data-section="${section}"]`);
+
+            // Remover ativo de todos
+            slides.forEach(slide => slide.classList.remove('ativo'));
+            dots.forEach(dot => dot.classList.remove('ativo'));
+
+            // Adicionar ativo ao selecionado
+            slides[indice].classList.add('ativo');
+            elemento.classList.add('ativo');
+        }
+
+        // Inicializar ao carregar
+        document.addEventListener('DOMContentLoaded', inicializarGalerias);
+    </script>
 
 </body>
 </html>
